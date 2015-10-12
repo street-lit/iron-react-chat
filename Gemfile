@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby ''
+ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
@@ -55,3 +55,4 @@ group :production do
 end
 
 gem 'materialize-sass'
+gem 'react-rails'
