@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>IronChatReact</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>IronChatReact</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= react_component("HelloWorld") %>
+  <%= react_component("HelloWorld") %>
 
-<%= yield %>
+  <div class='container'>
+    <div class='row'>
+      <div class='m12'>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 
-</body>
+  </body>
 </html>

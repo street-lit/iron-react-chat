@@ -3,7 +3,9 @@
 one:
   body: MyString
   user_id: 
+  chatroom_id: 
 
 two:
   body: MyString
   user_id: 
+  chatroom_id: 
