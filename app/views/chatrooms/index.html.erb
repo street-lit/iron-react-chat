@@ -15,7 +15,7 @@
       <tr>
         <td><%= chatroom.name %></td>
         <td><%= chatroom.topic %></td>
-        <td><%= link_to 'Go on naw! Chat it up!', chatroom, class: "right btn" %></td>
+        <td><%= link_to 'Go on naw! Chat it up!', chatroom, class: "right btn"  if user_logged_in? %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +23,8 @@
 
 <br>
 
-<%= link_to 'New Chatroom', new_chatroom_path, class: "btn" %>
+<% if user_logged_in? %>
+  <%= link_to 'New Chatroom', new_chatroom_path, class: "btn" %>
+<% else %>
+  <%= link_to 'Log in to Chat!', login_path, class: "btn" %>
+<% end %>
