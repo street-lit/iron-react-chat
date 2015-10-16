@@ -28,14 +28,18 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @message.user = current_user
-    respond_to do |format|
-      if @message.save
-        format.html { redirect_to :back }
-        format.json { render :show, status: :created, location: @message }
-      else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+    if @message.save
+      respond_to do |f|
+        f.html do |f|
+          redirect_to :back
+        end
+        f.json do
+          render json: @message.to_json
+        end
       end
+    else
+      flash[:alert] = 'Errors'
+      render :back
     end
   end
 

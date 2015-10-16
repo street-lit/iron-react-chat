@@ -1,17 +1,11 @@
-<%= form_for(@new_message) do |f| %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
-  </div>
-  <div class="field">
+<section class="chatrooms">
+  <%= form_for(@new_message) do |f| %>
     <%= f.hidden_field :user_id, value: @user %>
-  </div>
-  <div class="field">
     <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
-  </div>
-  <div class="btn" id="newComment">send message</div>
-  <div class="actions">
-    <p><%= f.submit class: "btn" %></p>
-  </div>
-<% end %>
+    <p>
+      <%= f.label :body %><br>
+      <%= f.text_field :body %>
+    </p>
+    <div class="btn" id="newMessage">send message</div>
+  <% end %>
+</section>
