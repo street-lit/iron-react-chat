@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     if @message.save
       respond_to do |f|
-        f.html do |f|
+        f.html do
           redirect_to :back
         end
         f.json do
@@ -38,8 +38,15 @@ class MessagesController < ApplicationController
         end
       end
     else
-      flash[:alert] = 'Errors'
+      respond_to do |f|
+        f.html do
+          flash[:alert] = 'Errors'
       render :back
+        end
+        f.json do
+          render json: @message
+        end
+      end
     end
   end
 
