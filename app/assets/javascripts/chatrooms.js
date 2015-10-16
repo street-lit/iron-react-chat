@@ -1,3 +1,6 @@
+// var user = $('td span:last').first()
+var today = new Date();
+var UTCstring = today.toUTCString();
 
 $('#newMessage').on('click', function () {
   $.ajax({
@@ -13,7 +16,7 @@ $('#newMessage').on('click', function () {
     },
     success: function (response) {
       $('#message_body').val('');
-      $('tr').last().parent().append('<tr><td> You say:</td><td>' + response.body + '</td></tr>');
+      $('tr').last().parent().append('<tr><td> You said:</td><td>' + response.body + '</td><td>'+UTCstring+'</trd></tr>');
     }
   });
 });

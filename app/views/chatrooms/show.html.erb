@@ -7,7 +7,7 @@
     <tbody>
       <% @chatroom.messages.each do |message| %>
         <tr>
-          <td><%= message.user.name %> says:</td>
+          <td><% if message.user.id == @current_user.id %> You said: <% else %><%= message.user.name %> said: <% end %></td>
           <td><%= message.body %></td>
           <td><%= message.created_at %></td>
         </tr>
