@@ -1,14 +1,12 @@
 class SessionsController < ApplicationController
   skip_before_filter :authenticate_user
 
-  #Basics done
-
   def new
   end
 
   def create
     user = User.find_by_username(params[:username])
-    if user.present && user.authenticate(params[:password])
+    if user.present? && user.authenticate(params[:password])
       set_user_session(user)
       redirect_to root_path, notice: "Successfully logged in! Hello #{user.name}"
     else

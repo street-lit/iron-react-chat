@@ -10,10 +10,12 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    current_user
   end
 
   # GET /messages/new
   def new
+    current_user
     @message = Message.new
   end
 
@@ -28,7 +30,7 @@ class MessagesController < ApplicationController
     @message.user = current_user
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
+        format.html { redirect_to :back }
         format.json { render :show, status: :created, location: @message }
       else
         format.html { render :new }

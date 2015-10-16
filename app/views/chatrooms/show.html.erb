@@ -1,15 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @chatroom.name %>
-</p>
+<h1><%= @chatroom.name %></h1>
 
-<p>
-  <strong>Topic:</strong>
-  <%= @chatroom.topic %>
-</p>
+<div class="#ffffff white">
+  <table>
 
+    <tbody>
+      <% @chatroom.messages.each do |message| %>
+        <tr>
+          <td><%= message.user.name %> says:</td>
+          <td><%= message.body %></td>
+          <td><%= message.created_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
-<%= link_to 'Back', chatrooms_path %>
+<%= render 'new_message_form' %>
+<br />
+<%= link_to 'Back', chatrooms_path, class: "btn" %>

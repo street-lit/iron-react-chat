@@ -10,10 +10,18 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms/1
   # GET /chatrooms/1.json
   def show
+    authenticate_user
+  end
+
+  def about
+  end
+
+  def welcome
   end
 
   # GET /chatrooms/new
   def new
+    authenticate_user
     @chatroom = Chatroom.new
   end
 
@@ -54,6 +62,7 @@ class ChatroomsController < ApplicationController
   # DELETE /chatrooms/1
   # DELETE /chatrooms/1.json
   def destroy
+    authenticate_user
     @chatroom.destroy
     respond_to do |format|
       format.html { redirect_to chatrooms_url, notice: 'Chatroom was successfully destroyed.' }
