@@ -14,9 +14,9 @@ $('#newMessage').on('click', function () {
         chatroom_id: $('#message_chatroom_id').val()
       }
     },
-    success: function (response) {
+    success: function (response, users) {
       $('#message_body').val('');
-      $('tr').last().parent().append('<tr><td> You said:</td><td>' + response.body + '</td><td>'+UTCstring+'</trd></tr>');
+      $('tr').last().parent().append('<tr><td> ' + response.user.name + ' said:</td><td>' + response.body + '</td><td>'+response.created_at+'</trd></tr>');
     }
   });
 });

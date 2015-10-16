@@ -34,7 +34,7 @@ class MessagesController < ApplicationController
           redirect_to :back
         end
         f.json do
-          render json: @message.to_json
+          render json: @message.to_json(:include => :user)
         end
       end
     else

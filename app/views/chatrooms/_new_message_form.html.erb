@@ -1,11 +1,11 @@
 <section class="chatrooms">
-  <%= form_for(@new_message) do |f| %>
-    <%= f.hidden_field :user_id, value: @user %>
-    <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
+
+    <%= hidden_field_tag 'message_user_id', @user %>
+    <%= hidden_field_tag 'message_chatroom_id', @chatroom.id %>
     <p>
-      <%= f.label :body %><br>
-      <%= f.text_field :body %>
+      <%= label_tag 'body' %><br>
+      <%= text_field_tag 'message_body' %>
     </p>
     <div class="btn" id="newMessage">send message</div>
-  <% end %>
+
 </section>
