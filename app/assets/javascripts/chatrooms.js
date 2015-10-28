@@ -1,4 +1,3 @@
-// var user = $('td span:last').first()
 var today = new Date();
 var UTCstring = today.toUTCString();
 
