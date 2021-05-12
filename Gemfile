@@ -50,7 +50,7 @@ gem 'faker'
 gem 'kaminari'
 gem 'bcrypt'
 group :production do
-  gem 'puma'
+  gem 'puma', '>= 4.3.8'
   gem 'rails_12factor'
 end
 
